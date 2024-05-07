@@ -6,6 +6,7 @@ export async function POST(request: Request) {
     const data = await request.json();
     const { name, email, password, passwordConfirmation } =
       userSchema.parse(data);
+
     console.log(name, email, password, passwordConfirmation);
 
     const user = await prisma.user.create({
@@ -15,7 +16,9 @@ export async function POST(request: Request) {
         password,
       },
     });
+
     return Response.json(user);
+
   } catch (error) {
     return Response.json({ error: error }, { status: 400 });
   }

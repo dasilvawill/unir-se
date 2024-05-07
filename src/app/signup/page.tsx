@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Form } from "./components/Form";
+import Form from "@/app/signup/components/Form";
 
 export const metadata: Metadata = {
   title: "Criar uma conta",

@@ -29,7 +29,7 @@ export const userSchema = z.object({
     .string({
       required_error: "O campo senha é obrigatório.",
     })
-    .min(8, { message: "O campo senha deve ter mais de 8 caracteres." })
+    .min(8, { message: "O campo senha deve ter 8 caracteres ou mais." })
     .max(255, {
       message: "O campo senha não deve ter mais de 255 caracteres.",
     }),
@@ -39,7 +39,7 @@ export const userSchema = z.object({
       required_error: "O campo confirmação de senha é obrigatório.",
     })
     .min(8, {
-      message: "O campo confirmação de senha deve ter mais de 8 caracteres.",
+      message: "O campo confirmação de senha deve ter 8 caracteres ou mais.",
     })
     .max(255, {
       message:
