@@ -5,13 +5,31 @@ export async function createRepository(
   email: string,
   password: string
 ) {
-  const user = await prisma.user.create({
+  const userCreated = await prisma.user.create({
     data: {
       name,
       email,
       password,
     },
+    select: {
+      name: true,
+      email: true,
+    },
   });
 
-  return user;
+  return userCreated;
+}
+
+export async function getRepository(email: string) {
+  const emailExist = await prisma.user.findFirst({
+    where: {
+      email,
+    },
+    select: {
+      name: true,
+      email: true,
+    },
+  });
+
+  return emailExist;
 }
