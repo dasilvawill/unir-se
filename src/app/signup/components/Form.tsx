@@ -1,11 +1,11 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { signupSchema } from "@/app/signup/components/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schemaForm } from "@/app/signup/components/schema";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-type FormProps = z.infer<typeof schemaForm>;
+type FormProps = z.infer<typeof signupSchema>;
 
 const Form = () => {
   const {
@@ -15,7 +15,7 @@ const Form = () => {
   } = useForm<FormProps>({
     criteriaMode: "all",
     mode: "onSubmit",
-    resolver: zodResolver(schemaForm),
+    resolver: zodResolver(signupSchema),
     defaultValues: {
       signup: {
         name: "",

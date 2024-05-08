@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const schemaForm = z.object({
+export const signupSchema = z.object({
   signup: z
     .object({
       name: z

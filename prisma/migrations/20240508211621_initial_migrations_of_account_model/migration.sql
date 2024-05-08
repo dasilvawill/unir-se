@@ -1,9 +1,9 @@
 -- CreateTable
-CREATE TABLE "user" (
+CREATE TABLE "account" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
 
-    CONSTRAINT "user_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "account_pkey" PRIMARY KEY ("id")
 );

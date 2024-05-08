@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import Form from "@/app/signup/components/Form";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Criar uma conta",

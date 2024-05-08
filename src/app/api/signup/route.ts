@@ -1,15 +1,14 @@
-import { userSchema } from "@/app/api/signup/schema";
-import { createService } from "./signup-service";
+import { Errors } from "@/app/api/errors/errors";
+import { accountSchema } from "@/app/api/signup/schema";
+import { createAccountService } from "@/app/api/signup/signup-service";
 import prisma from "@/app/database/prismaClient";
-import { Errors } from "../errors/errors";
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, email, password, passwordConfirmation } =
-      userSchema.parse(data);
+    const { name, email, password } = accountSchema.parse(data);
 
-    const user = await createService(name, email, password);
+    const user = await createAccountService(name, email, password);
 
     return Response.json({ user });
   } catch (error: any) {
@@ -21,9 +20,9 @@ export async function POST(request: Request) {
   }
 }
 
-/* metodo temporário */
+/* temporary function */
 export async function GET(request: Request) {
-  const users = await prisma.user.findMany({
+  const users = await prisma.account.findMany({
     select: {
       name: true,
       email: true,

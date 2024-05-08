@@ -1,13 +1,13 @@
-import { Errors } from "../errors/errors";
-import { signinSchema } from "./schema";
-import { authenticate } from "./signin-service";
+import { Errors } from "@/app/api/errors/errors";
+import { signinSchema } from "@/app/api/signin/schema";
+import { authenticateService } from "@/app/api/signin/signin-service";
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     const { email, password } = signinSchema.parse(data);
 
-    const token = await authenticate(email, password);
+    const token = await authenticateService(email, password);
 
     return Response.json({ token });
   } catch (error: any) {

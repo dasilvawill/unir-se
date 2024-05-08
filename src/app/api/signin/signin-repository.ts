@@ -1,7 +1,7 @@
 import prisma from "@/app/database/prismaClient";
 
-export async function getAccountByEmail(email: string) {
-  const account = await prisma.user.findFirst({
+export async function getAccountByEmailRepository(email: string) {
+  const account = await prisma.account.findFirst({
     where: {
       email,
     },

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const userSchema = z.object({
+export const accountSchema = z.object({
   name: z
     .string({
       required_error: "O campo nome é obrigatório.",
