@@ -6,11 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Cookie from "js-cookie";
 
 type FormProps = z.infer<typeof signinSchema>;
 
 const Form = () => {
-  const { push } = useRouter();
+  const { replace } = useRouter();
 
   const {
     register,
@@ -41,10 +42,8 @@ const Form = () => {
       if (response.ok) {
         const responseData = await response.json();
         const token = responseData.token;
-        console.log("Token de acesso:", token);
-        console.log("Login realizado com sucesso");
-
-        push("/signup");
+        Cookie.set("auth_token", token);
+        replace("/dashboard");
       } else {
         console.error("Erro ao enviar os dados");
       }
