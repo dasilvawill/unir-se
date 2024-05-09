@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Entrar em Esperance",
+    absolute: "Entrar na Esperance",
   },
 };
 
@@ -24,7 +24,7 @@ export default function SignIn() {
             />
           </a>
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Faça login em sua conta
+            Entrar na sua conta
           </h2>
         </div>
 

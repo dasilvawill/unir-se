@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { Errors } from "@/app/api/errors/errors";
 
 type FormProps = z.infer<typeof signupSchema>;
 
@@ -45,16 +46,17 @@ const Form = () => {
       if (response.ok) {
         push("/");
       } else {
-        toast.error("Erro ao enviar os dados");
+        const errorMessage = await response.json();
+        toast.error(errorMessage.error);
       }
-    } catch (error) {
-      toast.error("Erro ao enviar os dados");
+    } catch (error: any) {
+      toast.error(error.message);
     }
   }
 
   return (
     <>
-      <Toaster position="top-right" />
+      <Toaster position="top-right" expand visibleToasts={1} />
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label

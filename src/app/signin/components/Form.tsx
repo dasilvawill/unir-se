@@ -33,7 +33,6 @@ const Form = () => {
   async function onSubmit(data: FormProps) {
     try {
       toast("Aguarde, entrando na sua conta");
-
       const response = await fetch("/api/signin", {
         method: "POST",
         headers: {
@@ -48,10 +47,11 @@ const Form = () => {
         Cookie.set("auth_token", token);
         replace("/dashboard");
       } else {
-        toast.error("Erro ao enviar os dados");
+        const errorMessage = await response.json();
+        toast.error(errorMessage.error);
       }
-    } catch (error) {
-      toast.error("Erro ao enviar os dados");
+    } catch (error: any) {
+      toast.error(error.message);
     }
   }
 
