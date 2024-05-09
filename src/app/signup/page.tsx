@@ -1,6 +1,7 @@
 import Form from "@/app/signup/components/Form";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Criar uma conta",
@@ -25,8 +26,33 @@ export default function SignUp() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <Form />
+          <p className="mt-5 text-sm font-light">
+            Ao se cadastrar, você aceita nossos{" "}
+            <Link
+              className="font-medium text-blue-600 hover:text-blue-700"
+              href="#"
+            >
+              termos de uso
+            </Link>{" "}
+            e a nossa{" "}
+            <Link
+              className="font-medium text-blue-600 hover:text-blue-700"
+              href="#"
+            >
+              política de privacidade{" "}
+            </Link>
+            .
+          </p>
           <div className="mt-8 flex justify-center">
-            <a href="/signin">Já tem uma conta? Entre aqui</a>
+            <p>
+              Já tem uma conta?{" "}
+              <Link
+                className="font-medium text-blue-600 hover:text-blue-700"
+                href="/signin"
+              >
+                Entre aqui
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Form from "@/app/signin/components/Form";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,17 @@ export default function SignIn() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <Form />
+        </div>
+        <div className="mt-8 flex justify-center">
+          <p>
+            Ainda não tem uma conta?{" "}
+            <Link
+              className="font-medium text-blue-600 hover:text-blue-700"
+              href="/signup"
+            >
+              Crie aqui
+            </Link>
+          </p>
         </div>
       </div>
     </>
