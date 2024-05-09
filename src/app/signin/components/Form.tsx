@@ -1,13 +1,17 @@
 "use client";
 
+import { Button } from "@/app/components/Button";
 import { signinSchema } from "@/app/signin/components/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 type FormProps = z.infer<typeof signinSchema>;
 
 const Form = () => {
+  const { push } = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -39,6 +43,8 @@ const Form = () => {
         const token = responseData.token;
         console.log("Token de acesso:", token);
         console.log("Login realizado com sucesso");
+
+        push("/signup");
       } else {
         console.error("Erro ao enviar os dados");
       }
@@ -62,7 +68,7 @@ const Form = () => {
             type="email"
             autoComplete="email"
             placeholder="Informe o seu e-mail"
-            className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             {...register("signin.email")}
           />
           {errors.signin?.email?.message && (
@@ -86,7 +92,7 @@ const Form = () => {
             type="password"
             autoComplete="password"
             placeholder="Digite uma nova senha"
-            className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             {...register("signin.password")}
           />
           {errors.signin?.password?.message && (
@@ -98,12 +104,12 @@ const Form = () => {
       </div>
 
       <div>
-        <button
-          type="submit"
-          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        <Button
+          variant="primary"
+          className="flex w-full justify-center text-sm text-white"
         >
           Entrar
-        </button>
+        </Button>
       </div>
     </form>
   );

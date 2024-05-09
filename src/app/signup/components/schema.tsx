@@ -16,7 +16,7 @@ export const signupSchema = z.object({
             const parts = name.trim().split(" ");
             return parts.length >= 2 && parts.every((part) => part.length > 0);
           },
-          { message: "Informe um nome e um sobrenome." }
+          { message: "Informe um nome e um sobrenome." },
         ),
 
       email: z
