@@ -1,5 +1,5 @@
 {
-  "name": "solidarize",
+  "name": "esperance",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,6 +25,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
+    "sonner": "^1.4.41",
     "tailwind-variants": "^0.2.1",
     "zod": "^3.23.6"
   },
