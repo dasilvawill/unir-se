@@ -9,6 +9,7 @@
     "prisma:migrate-dev": "npx prisma migrate dev",
     "prisma:deploy": "npx prisma migrate deploy",
     "prisma:generate": "npx prisma generate",
+    "prisma:production": "npm run prisma:deploy && npm run prisma:generate",
     "dev": "npm run services:up && next dev",
     "build": "next build",
     "start": "next start",
