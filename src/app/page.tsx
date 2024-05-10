@@ -132,6 +132,14 @@ export default function Home() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Esperance
             </h1>
+
+            <div className="my-5 rounded-3xl border border-red-900 bg-red-100">
+              <h2 className="p-5">SISTEMA EM DESENVOLVIMENTO</h2>
+              <h3 className="p-5">
+                Os dados poderão ser apagados a qualquer momento
+              </h3>
+            </div>
+
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Descubra como nosso sistema de ajuda humanitária está fazendo a
               diferença! Oferecemos suporte vital para comunidades afetadas por
