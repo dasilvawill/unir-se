@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const user = {
   name: "Tom Cook",
@@ -30,14 +31,6 @@ function classNames(...classes: any) {
 export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -46,10 +39,12 @@ export default function Example() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
+                      <Image
                         className="h-8 w-8"
                         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
+                        alt="logo"
+                        width={100}
+                        height={100}
                       />
                     </div>
                     <div className="hidden md:block">
@@ -89,10 +84,12 @@ export default function Example() {
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            <img
+                            <Image
                               className="h-8 w-8 rounded-full"
                               src={user.imageUrl}
-                              alt=""
+                              alt="logo"
+                              width={100}
+                              height={100}
                             />
                           </Menu.Button>
                         </div>
@@ -169,10 +166,12 @@ export default function Example() {
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img
+                      <Image
                         className="h-10 w-10 rounded-full"
                         src={user.imageUrl}
-                        alt=""
+                        alt="logo"
+                        width={100}
+                        height={100}
                       />
                     </div>
                     <div className="ml-3">

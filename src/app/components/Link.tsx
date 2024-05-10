@@ -15,8 +15,7 @@ export function LinkComponent({
 }: LinkProps) {
   return (
     <Link href={href} className={`${className}`}>
-      {text}
-      {spanContent && <span aria-hidden="true">{spanContent}</span>}
+      {text} {spanContent && <span aria-hidden="true">{spanContent}</span>}
     </Link>
   );
 }
