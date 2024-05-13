@@ -2,6 +2,9 @@
   "name": "esperance",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "scripts": {
     "services:up": "docker compose -f src/app/database/compose.yaml up -d",
     "services:down": "docker compose -f src/app/database/compose.yaml down",
@@ -35,7 +38,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20",
+    "@types/node": "^20.12.11",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -44,6 +47,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "prisma": "^5.13.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   }
 }
