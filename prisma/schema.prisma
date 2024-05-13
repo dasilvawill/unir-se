@@ -21,3 +21,32 @@ model Account {
 
   @@map("account")
 }
+
+model Permission {
+  id Int @default(autoincrement()) @id
+  description String
+
+  role_permission RolePermission[]
+
+  @@map("permission")
+}
+
+model Role {
+  id Int @default(autoincrement()) @id
+  description String
+
+  role_permission RolePermission[]
+
+  @@map("role")
+}
+
+model RolePermission {
+  id Int @default(autoincrement()) @id
+  role_id Int
+  permission_id Int
+
+  role Role @relation(fields: [role_id], references: [id])
+  permission Permission @relation(fields: [permission_id], references: [id])
+
+  @@map("role_permission")
+}
