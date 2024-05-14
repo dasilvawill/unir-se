@@ -16,9 +16,7 @@ const user = {
 const parts = user.name.split(" ");
 const firsName = parts[0];
 
-const navigation = [
-  /* { name: "Inicio", href: "#", current: true } */
-];
+/* const navigation = [{ name: "Inicio", href: "#", current: true }]; */
 
 const userNavigation = [
   { name: "Perfil", href: "#" },
@@ -50,7 +48,7 @@ export default function Example() {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
+                        {/*                         {navigation.map((item) => (
                           <a
                             key={item.name}
                             href={item.href}
@@ -64,7 +62,7 @@ export default function Example() {
                           >
                             {item.name}
                           </a>
-                        ))}
+                        ))} */}
                       </div>
                     </div>
                   </div>
@@ -147,7 +145,7 @@ export default function Example() {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
+                  {/*                   {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -162,7 +160,7 @@ export default function Example() {
                     >
                       {item.name}
                     </Disclosure.Button>
-                  ))}
+                  ))} */}
                 </div>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
