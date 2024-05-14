@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import MenuComponent from "@/app/dashboard/components/Menu";
 
@@ -37,7 +37,7 @@ export default function Example() {
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0">
+                    <div className="flex flex-shrink-0 flex-row gap-6">
                       <Image
                         className="h-8 w-8"
                         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -45,7 +45,12 @@ export default function Example() {
                         width={100}
                         height={100}
                       />
+
+                      <span className="text-2xl font-semibold tracking-tight text-gray-900">
+                        Olá, {firsName}
+                      </span>
                     </div>
+
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {/*                         {navigation.map((item) => (
@@ -68,14 +73,14 @@ export default function Example() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                      <button
+                      {/*                       <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
+                      </button> */}
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -181,14 +186,14 @@ export default function Example() {
                         {user.email}
                       </div>
                     </div>
-                    <button
+                    {/*                     <button
                       type="button"
                       className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+                    </button> */}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
@@ -208,16 +213,16 @@ export default function Example() {
           )}
         </Disclosure>
 
-        <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        {/*<header className="bg-white shadow">
+                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               Olá, {firsName}
             </h1>
-          </div>
-        </header>
+          </div> 
+        </header>*/}
         <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <h1 className="mt-20 flex items-center justify-center text-[30px] font-bold sm:mt-2">
+          <div className="mx-auto mt-20 flex h-screen max-w-7xl flex-col items-center justify-start py-6 sm:px-6 lg:px-8">
+            <h1 className="text-4xl font-bold sm:mt-2">
               Funcionalidades disponíveis para você
             </h1>
             <MenuComponent />
