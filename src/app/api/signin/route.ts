@@ -1,6 +1,6 @@
 import { Errors } from "@/app/api/errors/errors";
 import { signinSchema } from "@/app/api/signin/schema";
-import { authenticateService } from "@/app/api/signin/signin-service";
+import { authenticateService } from "@/app/api/auth-service";
 
 export async function POST(request: Request) {
   try {
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const typeError = Errors(error.message);
     return Response.json(
       { error: typeError?.message },
-      { status: typeError?.status }
+      { status: typeError?.status },
     );
   }
 }

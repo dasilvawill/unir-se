@@ -21,7 +21,7 @@ export async function authenticateService(email: string, password: string) {
     {
       subject: String(account.id),
       expiresIn: "60s",
-    }
+    },
   );
 
   return token;

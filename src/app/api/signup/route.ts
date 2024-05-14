@@ -8,14 +8,14 @@ export async function POST(request: Request) {
     const data = await request.json();
     const { name, email, password } = accountSchema.parse(data);
 
-    const user = await createAccountService(name, email, password);
+    const token = await createAccountService(name, email, password);
 
-    return Response.json({ user });
+    return Response.json({ token });
   } catch (error: any) {
     const typeError = Errors(error.message);
     return Response.json(
       { error: typeError?.message },
-      { status: typeError?.status }
+      { status: typeError?.status },
     );
   }
 }

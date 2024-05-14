@@ -7,12 +7,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Errors } from "@/app/api/errors/errors";
+import Cookie from "js-cookie";
 
 type FormProps = z.infer<typeof signupSchema>;
 
 const Form = () => {
-  const { push } = useRouter();
+  const { replace } = useRouter();
 
   const {
     register,
@@ -44,7 +44,11 @@ const Form = () => {
       });
 
       if (response.ok) {
-        push("/");
+        const responseData = await response.json();
+        console.log(responseData);
+        const token = responseData.token;
+        Cookie.set("auth_token", token);
+        replace("/dashboard");
       } else {
         const errorMessage = await response.json();
         toast.error(errorMessage.error);
