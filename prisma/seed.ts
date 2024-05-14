@@ -1,3 +1,4 @@
+import { rolePermissions } from "../src/app/database/rolePermissions";
 import { permissions } from "../src/app/database/permissions";
 import { roles } from "../src/app/database/roles";
 import { PrismaClient } from "@prisma/client";
@@ -14,6 +15,10 @@ async function main() {
   });
 
   await Promise.all([createRolesPromise, createPermissionsPromise]);
+
+  await prisma.rolePermission.createMany({
+    data: rolePermissions,
+  });
 }
 
 main()
