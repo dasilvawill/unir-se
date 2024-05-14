@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import MenuComponent from "@/app/dashboard/components/Menu";
+import MenuComponent from "@/app/(loged)/dashboard/components/Menu";
 
 const user = {
   name: "João dos Santos",
