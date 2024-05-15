@@ -1,20 +1,40 @@
 "use client";
 
-import { Fragment } from "react";
+import MenuComponent from "@/app/(loged)/dashboard/components/Menu";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Cookie from "js-cookie";
+import { decode } from "jsonwebtoken";
 import Image from "next/image";
-import MenuComponent from "@/app/(loged)/dashboard/components/Menu";
+import { Fragment } from "react";
+
+interface TokenInterface {
+  email: string;
+  exp: number;
+  iat: number;
+  name: string;
+  sub: string;
+}
+
+const token = Cookie.get("auth_token");
+let decodedToken: TokenInterface | null = null;
+if (token) {
+  decodedToken = decode(token) as TokenInterface;
+}
+
+const name = decodedToken?.name;
+const email = decodedToken?.email;
 
 const user = {
-  name: "João dos Santos",
-  email: "joaosantos@email.com",
+  name: name || "",
+  email: email,
   imageUrl:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=100",
 };
 
 const parts = user.name.split(" ");
-const firsName = parts[0];
+const firsName =
+  parts[0].charAt(0).toUpperCase() + parts[0].slice(1).toLowerCase();
 
 /* const navigation = [{ name: "Inicio", href: "#", current: true }]; */
 
