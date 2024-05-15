@@ -241,8 +241,8 @@ export default function Example() {
           </div> 
         </header>*/}
         <main>
-          <div className="mx-auto mt-20 flex h-screen max-w-7xl flex-col items-center justify-start py-6 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold sm:mt-2">
+          <div className="flex flex-col items-center lg:mt-24">
+            <h1 className="mt-12 text-center text-2xl font-semibold lg:text-4xl lg:font-bold">
               Funcionalidades disponíveis para você
             </h1>
             <MenuComponent />
