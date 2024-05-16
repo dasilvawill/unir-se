@@ -1,33 +1,29 @@
-"use cliente";
+"use client";
 
 import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/24/outline";
+import { MapIcon, PlusIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const option = [
   {
     name: "Encontrar abrigos",
     description: "Buscar os abrigos cadastrados",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    icon: MapIcon,
   },
   {
     name: "Incluir abrigo",
     description: "Incluir um novo abrigo",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    icon: PlusIcon,
   },
   {
     name: "Encontrar abrigados",
     description: "Buscar os abrigados cadastrados",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    icon: UsersIcon,
   },
   {
     name: "Incluir abrigados",
     description: "Incluir um novo abrigado",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    icon: PlusIcon,
   },
 ];
 
@@ -42,7 +38,9 @@ export default function MenuComponent() {
           <li key={menuOption.name}>
             <Link href="#">
               <div className="flex w-auto flex-row items-start justify-start gap-6 rounded-xl bg-gray-50 p-8 hover:bg-gray-100">
-                <HomeIcon className="h-16 w-16" aria-hidden="true" />
+                {menuOption.icon && (
+                  <menuOption.icon className="h-16 w-16" aria-hidden="true" />
+                )}
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
                     {menuOption.name}
