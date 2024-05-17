@@ -26,7 +26,7 @@ const option = [
 
 export default function MenuOptions() {
   return (
-    <div className="mx-auto mt-20 grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
+    <div className="mx-auto mb-12 mt-20 grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
       <ul
         role="list"
         className="grid gap-x-12 gap-y-12 sm:grid-cols-2 sm:gap-y-12 xl:col-span-2"
