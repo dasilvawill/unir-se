@@ -1,9 +1,9 @@
-import prisma from "@/app/database/prismaClient";
+import prisma from "@/app/(unauthenticated)/database/prismaClient";
 
 export async function createAccountRepository(
   name: string,
   email: string,
-  password: string
+  password: string,
 ) {
   const userCreated = await prisma.account.create({
     data: {

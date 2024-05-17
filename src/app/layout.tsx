@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  Roboto_Flex as Roboto,
-  Bai_Jamjuree as BaiJamjuree,
-} from "next/font/google";
-import "./globals.css";
+import { Inter, Roboto_Flex as Roboto } from "next/font/google";
+import "@/app/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,8 +12,8 @@ const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
 export const metadata: Metadata = {
   title: {
     absolute: "",
-    default: "Esperance",
-    template: "%s | Esperance",
+    default: "Unir-se",
+    template: "%s | Unir-se",
   },
   description:
     "Descubra como nosso sistema de ajuda humanitária está fazendo a diferença! Oferecemos suporte vital para comunidades afetadas por desastres naturais, conflitos e crises humanitárias. Junte-se a nós para fornecer assistência essencial, reconstruir vidas e restaurar a esperança. Saiba mais sobre como estamos promovendo o bem-estar global e como você pode se envolver para fazer parte dessa causa significativa.",

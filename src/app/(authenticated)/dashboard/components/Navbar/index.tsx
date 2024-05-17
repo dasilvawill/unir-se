@@ -1,6 +1,5 @@
 "use client";
 
-import MenuComponent from "@/app/(loged)/dashboard/components/Menu";
 import {
   Disclosure,
   DisclosureButton,
@@ -54,7 +53,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function NavBar() {
   return (
     <>
       <div className="min-h-full">
@@ -185,15 +184,6 @@ export default function Example() {
             </>
           )}
         </Disclosure>
-
-        <main>
-          <div className="flex flex-col items-center lg:mt-24">
-            <h1 className="mt-12 text-center text-2xl font-semibold lg:text-4xl lg:font-bold">
-              Funcionalidades disponíveis para você
-            </h1>
-            <MenuComponent />
-          </div>
-        </main>
       </div>
     </>
   );

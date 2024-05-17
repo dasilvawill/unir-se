@@ -1,11 +1,11 @@
-import Form from "@/app/signin/components/Form";
+import Form from "@/app/(unauthenticated)/signin/components/Form";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Entrar na Esperance",
+    absolute: "Unir-se",
   },
 };
 

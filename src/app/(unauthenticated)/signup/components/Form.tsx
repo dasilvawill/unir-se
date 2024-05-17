@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/app/components/Button";
-import { signinSchema } from "@/app/signin/components/schema";
+import { Button } from "@/app/(unauthenticated)/components/Button";
+import { signupSchema } from "@/app/(unauthenticated)/signup/components/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Cookie from "js-cookie";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { Toaster, toast } from "sonner";
 import { z } from "zod";
+import { Toaster, toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Cookie from "js-cookie";
 
-type FormProps = z.infer<typeof signinSchema>;
+type FormProps = z.infer<typeof signupSchema>;
 
 const Form = () => {
   const { replace } = useRouter();
@@ -21,28 +21,31 @@ const Form = () => {
   } = useForm<FormProps>({
     criteriaMode: "all",
     mode: "onSubmit",
-    resolver: zodResolver(signinSchema),
+    resolver: zodResolver(signupSchema),
     defaultValues: {
-      signin: {
+      signup: {
+        name: "",
         email: "",
         password: "",
+        passwordConfirmation: "",
       },
     },
   });
 
   async function onSubmit(data: FormProps) {
     try {
-      toast("Aguarde, entrando na sua conta");
-      const response = await fetch("/api/signin", {
+      toast("Aguarde, criando sua conta");
+      const response = await fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data.signin),
+        body: JSON.stringify(data.signup),
       });
 
       if (response.ok) {
         const responseData = await response.json();
+        console.log(responseData);
         const token = responseData.token;
         Cookie.set("auth_token", token);
         replace("/dashboard");
@@ -61,6 +64,30 @@ const Form = () => {
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label
+            htmlFor="name"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Nome completo
+          </label>
+          <div className="mt-2">
+            <input
+              id="name"
+              type="text"
+              autoComplete="name"
+              placeholder="Informe o seu nome completo"
+              className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              {...register("signup.name")}
+            />
+            {errors.signup?.name?.message && (
+              <p className="text-sm text-red-500">
+                {errors.signup?.name?.message}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label
             htmlFor="email"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
@@ -73,11 +100,11 @@ const Form = () => {
               autoComplete="email"
               placeholder="Informe o seu e-mail"
               className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              {...register("signin.email")}
+              {...register("signup.email")}
             />
-            {errors.signin?.email?.message && (
+            {errors.signup?.email?.message && (
               <p className="text-sm text-red-500">
-                {errors.signin?.email?.message}
+                {errors.signup?.email?.message}
               </p>
             )}
           </div>
@@ -97,11 +124,35 @@ const Form = () => {
               autoComplete="password"
               placeholder="Digite uma nova senha"
               className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              {...register("signin.password")}
+              {...register("signup.password")}
             />
-            {errors.signin?.password?.message && (
+            {errors.signup?.password?.message && (
               <p className="text-sm text-red-500">
-                {errors.signin?.password?.message}
+                {errors.signup?.password?.message}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label
+            htmlFor="passwordConfirmation"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Confirmação de senha
+          </label>
+          <div className="mt-2">
+            <input
+              id="passwordConfirmation"
+              type="password"
+              autoComplete="passwordConfirmation"
+              placeholder="Repita a senha"
+              className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              {...register("signup.passwordConfirmation")}
+            />
+            {errors.signup?.passwordConfirmation?.message && (
+              <p className="text-sm text-red-500">
+                {errors.signup?.passwordConfirmation?.message}
               </p>
             )}
           </div>
@@ -109,10 +160,11 @@ const Form = () => {
 
         <div>
           <Button
+            type="submit"
             variant="primary"
             className="flex w-full justify-center text-sm text-white"
           >
-            Entrar
+            Criar conta
           </Button>
         </div>
       </form>

@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import { MapIcon, PlusIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
@@ -27,7 +24,7 @@ const option = [
   },
 ];
 
-export default function MenuComponent() {
+export default function MenuOptions() {
   return (
     <div className="mx-auto mt-20 grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
       <ul
