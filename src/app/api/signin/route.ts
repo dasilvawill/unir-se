@@ -1,6 +1,6 @@
-import { Errors } from "@/app/api/errors/errors";
-import { signinSchema } from "@/app/api/signin/schema";
-import { authenticateService } from "@/app/api/auth-service";
+import { Errors } from "@/app/(unauthenticated)/api/errors/errors";
+import { signinSchema } from "@/app/(unauthenticated)/api/signin/schema";
+import { authenticateService } from "@/app/(unauthenticated)/api/auth-service";
 
 export async function POST(request: Request) {
   try {

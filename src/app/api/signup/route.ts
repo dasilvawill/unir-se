@@ -1,7 +1,7 @@
-import { Errors } from "@/app/api/errors/errors";
-import { accountSchema } from "@/app/api/signup/schema";
-import { createAccountService } from "@/app/api/signup/signup-service";
-import prisma from "@/app/database/prismaClient";
+import { Errors } from "@/app/(unauthenticated)/api/errors/errors";
+import { accountSchema } from "@/app/(unauthenticated)/api/signup/schema";
+import { createAccountService } from "@/app/(unauthenticated)/api/signup/signup-service";
+import prisma from "@/app/(unauthenticated)/database/prismaClient";
 
 export async function POST(request: Request) {
   try {

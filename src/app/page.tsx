@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { LinkComponent } from "@/app/components/Link";
+import { LinkComponent } from "@/app/(unauthenticated)/components/Link";
 
 const navigation = [{ name: "Sobre nós", href: "#" }];
 
@@ -20,7 +20,7 @@ export default function Home() {
         >
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Esperance</span>
+              <span className="sr-only">Unir-se</span>
               <Image
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
@@ -130,7 +130,7 @@ export default function Home() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-48">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Esperance
+              Unir-se
             </h1>
 
             <div className="my-5 rounded-3xl border border-red-900 bg-red-100">

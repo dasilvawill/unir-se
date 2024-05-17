@@ -1,4 +1,4 @@
-import { getAccountByEmailRepository } from "@/app/api/signin/signin-repository";
+import { getAccountByEmailRepository } from "@/app/(unauthenticated)/api/signin/signin-repository";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 

@@ -1,6 +1,6 @@
-import { rolePermissions } from "../src/app/database/rolePermissions";
-import { permissions } from "../src/app/database/permissions";
-import { roles } from "../src/app/database/roles";
+import { rolePermissions } from "../src/app/(unauthenticated)/database/rolePermissions";
+import { permissions } from "../src/app/(unauthenticated)/database/permissions";
+import { roles } from "../src/app/(unauthenticated)/database/roles";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
