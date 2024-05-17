@@ -1,15 +1,11 @@
 import { ReactNode } from "react";
-import NavBar from "@/app/(authenticated)/dashboard/components/Navbar";
+import NavBarWrapper from "@/app/(authenticated)/dashboard/components/Navbar/wrapper";
 
 export default function LogedLayout({ children }: { children: ReactNode }) {
   return (
-    <html>
-      <body>
-        <div className="min-h-screen max-w-[1600] font-roboto">
-          <NavBar />
-          {children}
-        </div>
-      </body>
-    </html>
+    <div className="min-h-screen max-w-[1600] font-roboto">
+      <NavBarWrapper />
+      {children}
+    </div>
   );
 }
