@@ -1,7 +1,7 @@
 import {
   createAccountRepository,
   getAccountByEmailRepository,
-} from "@/app/(unauthenticated)/api/signup/signup-repository";
+} from "@/app/api/signup/signup-repository";
 import { hash } from "bcryptjs";
 import { authenticateService } from "../auth-service";
 
