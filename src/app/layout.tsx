@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${roboto.variable} ${inter.variable} min-h-screen max-w-[1600] font-roboto`}
+        className={`${roboto.variable} ${inter.variable} min-h-screen font-roboto antialiased`}
       >
         {children}
       </body>

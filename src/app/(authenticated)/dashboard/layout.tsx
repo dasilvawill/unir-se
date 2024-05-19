@@ -5,7 +5,9 @@ export default function LogedLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <NavBarWrapper />
-      <main>{children}</main>
+      <div className="m-auto mt-16 flex flex-grow">
+        <main>{children}</main>
+      </div>
     </div>
   );
 }

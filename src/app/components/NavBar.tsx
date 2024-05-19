@@ -4,7 +4,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-import { LinkComponent } from "@/app/(unauthenticated)/components/Link";
+import { LinkComponent } from "@/app/components/Link";
 
 const navigation = [{ name: "Sobre nós", href: "/aboutUs" }];
 

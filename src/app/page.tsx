@@ -1,5 +1,5 @@
-import { LinkComponent } from "@/app/(unauthenticated)/components/Link";
-import NavBar from "./components/navBar";
+import { LinkComponent } from "@/app/components/Link";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (

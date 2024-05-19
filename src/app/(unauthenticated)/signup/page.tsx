@@ -42,7 +42,7 @@ export default function SignUp() {
               className="font-medium text-blue-600 hover:text-blue-700"
               href="#"
             >
-              política de privacidade{" "}
+              política de privacidade
             </Link>
             .
           </p>
