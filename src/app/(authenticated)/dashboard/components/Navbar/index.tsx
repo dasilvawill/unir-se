@@ -28,7 +28,7 @@ const user = {
 };
 
 const userNavigation = [
-  { name: "Perfil", href: "#" },
+  { name: "Perfil", href: "/dashboard/profile" },
   { name: "Sair", href: "#" },
 ];
 
@@ -38,21 +38,23 @@ function classNames(...classes: any) {
 
 export default function NavBar({ userData }: NavBarProps) {
   return (
-    <div className="min-h-full">
-      <Disclosure as="nav" className="bg-white">
+    <div>
+      <Disclosure as="nav">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                   <div className="flex flex-shrink-0 flex-row gap-6">
-                    <Image
-                      className="h-8 w-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="logo"
-                      width={100}
-                      height={100}
-                    />
+                    <a href="/">
+                      <Image
+                        className="h-8 w-8"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        alt="logo"
+                        width={100}
+                        height={100}
+                      />
+                    </a>
 
                     <span className="text-2xl font-semibold tracking-tight text-gray-900">
                       Olá, {userData.name}

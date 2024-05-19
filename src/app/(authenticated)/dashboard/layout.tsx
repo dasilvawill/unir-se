@@ -3,9 +3,9 @@ import NavBarWrapper from "@/app/(authenticated)/dashboard/components/Navbar/wra
 
 export default function LogedLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="">
+    <div className="flex min-h-screen flex-col">
       <NavBarWrapper />
-      {children}
+      <main>{children}</main>
     </div>
   );
 }
