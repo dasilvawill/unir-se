@@ -29,7 +29,7 @@ const user = {
 
 const userNavigation = [
   { name: "Perfil", href: "/dashboard/profile" },
-  { name: "Sair", href: "#" },
+  { name: "Sair", href: "/" },
 ];
 
 function classNames(...classes: any) {
