@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { LinkComponent } from "@/app/(unauthenticated)/components/Link";
 
-const navigation = [{ name: "Sobre nós", href: "#" }];
+const navigation = [{ name: "Sobre nós", href: "/aboutUs" }];
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

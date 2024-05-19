@@ -3,24 +3,28 @@ import Link from "next/link";
 
 const option = [
   {
-    name: "Encontrar abrigos",
-    description: "Buscar os abrigos cadastrados",
+    name: "Encontrar abrigo",
+    description: "Buscar nos abrigos cadastrados",
     icon: MapIcon,
+    href: "dashboard/shelterFind",
   },
   {
     name: "Incluir abrigo",
     description: "Incluir um novo abrigo",
     icon: PlusIcon,
+    href: "dashboard/shelterInclude",
   },
   {
-    name: "Encontrar abrigados",
-    description: "Buscar os abrigados cadastrados",
+    name: "Encontrar abrigado",
+    description: "Buscar nos abrigados cadastrados",
     icon: UsersIcon,
+    href: "dashboard/shelteredFind",
   },
   {
-    name: "Incluir abrigados",
+    name: "Incluir abrigado",
     description: "Incluir um novo abrigado",
     icon: PlusIcon,
+    href: "dashboard/shelteredInclude",
   },
 ];
 
@@ -33,7 +37,7 @@ export default function MenuOptions() {
       >
         {option.map((menuOption) => (
           <li key={menuOption.name}>
-            <Link href="#">
+            <Link href={menuOption.href}>
               <div className="flex w-auto flex-row items-start justify-start gap-6 rounded-xl bg-gray-50 p-8 hover:bg-gray-100">
                 {menuOption.icon && (
                   <menuOption.icon className="h-16 w-16" aria-hidden="true" />
