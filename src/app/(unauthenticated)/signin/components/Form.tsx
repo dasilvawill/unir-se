@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/app/(unauthenticated)/components/Button";
+import { Button } from "@/app/components/Button";
 import { signinSchema } from "@/app/(unauthenticated)/signin/components/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Cookie from "js-cookie";

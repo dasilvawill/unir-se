@@ -26,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${roboto.variable} ${inter.variable}`}>{children}</body>
+      <body
+        className={`${roboto.variable} ${inter.variable} min-h-screen font-roboto antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
