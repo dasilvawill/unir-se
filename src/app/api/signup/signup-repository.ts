@@ -1,15 +1,10 @@
 import prisma from "@/app/(unauthenticated)/database/prismaClient";
 
-export async function createAccountRepository(
-  name: string,
-  email: string,
-  password: string,
-) {
+export async function createAccountRepository(name: string, email: string) {
   const userCreated = await prisma.account.create({
     data: {
       name,
       email,
-      password,
     },
     select: {
       id: true,

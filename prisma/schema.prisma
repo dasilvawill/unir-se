@@ -14,17 +14,22 @@ datasource db {
 }
 
 model Account {
-  id Int @default(autoincrement()) @id
+  id String @id @default(uuid())
   name String
   email String
-  password String
+  password String?
+  active Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("account")
 }
 
 model Permission {
-  id Int @default(autoincrement()) @id
+  id String @id @default(uuid())
   description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   role_permission RolePermission[]
 
@@ -32,8 +37,10 @@ model Permission {
 }
 
 model Role {
-  id Int @default(autoincrement()) @id
+  id String @id @default(uuid())
   description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   role_permission RolePermission[]
 
@@ -41,9 +48,11 @@ model Role {
 }
 
 model RolePermission {
-  id Int @default(autoincrement()) @id
-  role_id Int
-  permission_id Int
+  id String @id @default(uuid())
+  role_id String
+  permission_id String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   role Role @relation(fields: [role_id], references: [id])
   permission Permission @relation(fields: [permission_id], references: [id])

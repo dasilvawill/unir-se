@@ -1,16 +1,17 @@
 import { Errors } from "@/app/api/errors/errors";
-import { signinSchema } from "@/app/api/signin/schema";
-import { authenticateService } from "@/app/api/auth-service";
+import { tokenSchema } from "@/app/api/validate-token/schema";
 import { ZodError } from "zod";
+import { validateTokenService } from "./validate-token-service";
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { email, password } = signinSchema.parse(data);
 
-    const token = await authenticateService(email, password);
+    const { token } = tokenSchema.parse(data);
 
-    return Response.json({ token });
+    const tokenValidationResult = await validateTokenService(token);
+
+    return Response.json({ token_validation_result: tokenValidationResult });
   } catch (error: any) {
     if (error instanceof ZodError) {
       return Response.json({ error: error.issues }, { status: 400 });

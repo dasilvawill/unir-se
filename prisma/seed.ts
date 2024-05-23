@@ -37,7 +37,7 @@ async function main() {
 
   const rolePermissionsExists = await prisma.rolePermission.findMany();
 
-  const rolePermissionsToCreate = rolePermissions.filter((rolePermission) => {
+  /* const rolePermissionsToCreate = rolePermissions.filter((rolePermission) => {
     return !rolePermissionsExists.find((existingRolePermission) => {
       return (
         existingRolePermission.role_id === rolePermission.role_id &&
@@ -48,7 +48,7 @@ async function main() {
 
   await prisma.rolePermission.createMany({
     data: rolePermissionsToCreate,
-  });
+  }); */
 }
 
 main()

@@ -15,5 +15,7 @@ export function Errors(code: string) {
   ];
 
   const error = errorMessages.find((err) => err.code === code);
-  return error ? { message: error.message, status: error.status } : null;
+  return error
+    ? { message: error.message, status: error.status }
+    : { message: "Ops, ocorreu um erro inesperado.", status: 500 };
 }
