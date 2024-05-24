@@ -1,5 +1,6 @@
 import { sendMail } from "@/utils/mail.utils";
-export async function GET() {
+
+export async function sendEmail(name: string, email: string, token: string) {
   const sender = {
     name: "Unir-se",
     address: "no-reply@example.com",
@@ -7,12 +8,8 @@ export async function GET() {
 
   const receipients = [
     {
-      name: "Jaimerson Cabral",
-      address: "jaimersoncabral@gmail.com",
-    },
-    {
-      name: "William da Silva",
-      address: "dasilvawilliam58@gmail.com",
+      name: name,
+      address: email,
     },
   ];
 
@@ -77,7 +74,7 @@ export async function GET() {
             <tr>
               <td align="center" bgcolor="#28a745" style="border-radius: 5px">
                 <a
-                  href="https://www.exemplo.com/cadastro-de-senha"
+                  href="http://localhost:3000/create-password/${token}"
                   style="
                     color: #ffffff;
                     display: inline-block;

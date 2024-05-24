@@ -4,7 +4,7 @@ export const signupSchema = z.object({
   signup: z
     .object({
       accountId: z.string({
-        required_error: "O campo senha é obrigatório.",
+        required_error: "O campo accountId é obrigatório.",
       }),
 
       password: z

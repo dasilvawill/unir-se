@@ -35,7 +35,7 @@ const Form = (props: FormaProps) => {
     resolver: zodResolver(signupSchema),
     defaultValues: {
       signup: {
-        accountId: "",
+        accountId: myAccountId,
         password: "",
         passwordConfirmation: "",
       },
@@ -43,15 +43,18 @@ const Form = (props: FormaProps) => {
   });
 
   async function onSubmit(data: FormProps) {
+    console.log(data, "onsubmit");
     try {
       toast("Aguarde, criando sua conta");
-      const response = await fetch("/api/signup", {
-        method: "POST",
+      const response = await fetch("/api/change-password", {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data.signup),
       });
+
+      console.log(response, "nflknaslkfsanfsa");
 
       if (response.ok) {
         const responseData = await response.json();
@@ -63,6 +66,7 @@ const Form = (props: FormaProps) => {
         toast.error(errorMessage.error);
       }
     } catch (error: any) {
+      console.log("responseData");
       toast.error(error.message);
     }
   }
@@ -72,7 +76,7 @@ const Form = (props: FormaProps) => {
       <Toaster position="top-right" expand visibleToasts={1} />
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <input
-          id="userId"
+          id="accountId"
           type="hidden"
           value={myAccountId}
           {...register("signup.accountId")}
