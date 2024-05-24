@@ -74,7 +74,7 @@ export async function sendEmail(name: string, email: string, token: string) {
             <tr>
               <td align="center" bgcolor="#28a745" style="border-radius: 5px">
                 <a
-                  href="http://localhost:3000/create-password/${token}"
+                  href="http://localhost:3000/change-password/${token}"
                   style="
                     color: #ffffff;
                     display: inline-block;

@@ -13,6 +13,7 @@ export async function POST(request: Request) {
 
     return Response.json({ token });
   } catch (error: any) {
+    console.log(error);
     if (error instanceof ZodError) {
       return Response.json({ error: error.issues }, { status: 400 });
     }

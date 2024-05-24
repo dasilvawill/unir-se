@@ -1,14 +1,13 @@
 "use client";
 
+import { signupSchema } from "@/app/(unauthenticated)/change-password/[token]/components/schema";
 import { Button } from "@/app/components/Button";
-import { signupSchema } from "@/app/(unauthenticated)/create-password/[token]/components/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Toaster, toast } from "sonner";
-import { useRouter } from "next/navigation";
 import Cookie from "js-cookie";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { Toaster, toast } from "sonner";
+import { z } from "zod";
 
 type FormProps = z.infer<typeof signupSchema>;
 
@@ -18,12 +17,6 @@ interface FormaProps {
 
 const Form = (props: FormaProps) => {
   const { replace } = useRouter();
-
-  const [myAccountId, setMyAccountId] = useState("");
-
-  useEffect(() => {
-    setMyAccountId(props.accountId);
-  }, [myAccountId]);
 
   const {
     register,
@@ -35,7 +28,7 @@ const Form = (props: FormaProps) => {
     resolver: zodResolver(signupSchema),
     defaultValues: {
       signup: {
-        accountId: myAccountId,
+        accountId: props.accountId,
         password: "",
         passwordConfirmation: "",
       },
@@ -54,13 +47,9 @@ const Form = (props: FormaProps) => {
         body: JSON.stringify(data.signup),
       });
 
-      console.log(response, "nflknaslkfsanfsa");
-
       if (response.ok) {
         const responseData = await response.json();
-        const token = responseData.token;
-        Cookie.set("auth_token", token);
-        replace("/dashboard");
+        replace("/signin");
       } else {
         const errorMessage = await response.json();
         toast.error(errorMessage.error);
@@ -78,7 +67,7 @@ const Form = (props: FormaProps) => {
         <input
           id="accountId"
           type="hidden"
-          value={myAccountId}
+          value={props.accountId}
           {...register("signup.accountId")}
         />
 

@@ -1,4 +1,4 @@
-import Form from "@/app/(unauthenticated)/create-password/[token]/components/Form";
+import Form from "@/app/(unauthenticated)/change-password/[token]/components/Form";
 import { Metadata } from "next";
 import Image from "next/image";
 import { decode } from "jsonwebtoken";

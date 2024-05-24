@@ -10,6 +10,7 @@ export async function changePasswordRepository(
     },
     data: {
       password,
+      active: true,
     },
   });
 
